@@ -17,19 +17,19 @@ loop do
   break if item_name == 'стоп'
 
   puts "Введите цену за единицу:"
-  price_per_unit = gets.chomp.to_f
+  item_price = gets.chomp.to_f
 
   puts "Введите количество купленного товара:"
-  qty = gets.chomp.to_f
+  quantity = gets.chomp.to_f
 
-  cart.push ([ item_name, price_per_unit, qty ])  #вложенный массив выбранных товаров
+  cart.push ([ item_name, item_price, quantity ])  #вложенный массив выбранных товаров
 end
 
-cart.each do |i|
+cart.each do |item|
   price_count = {}
-  price_count[i[1]] = i[2]
-  result_hash[i[0]] = price_count
-  total_per_item << i[1] * i[2]
+  price_count[item[1]] = item[2]
+  result_hash[item[0]] = price_count
+  total_per_item << item[1] * item[2]
 end
 
 puts "#{result_hash} - результирующий хэш"
