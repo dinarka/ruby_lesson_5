@@ -6,11 +6,10 @@
 
 puts "Напишите новое предложение"
 new_sentence = gets.chomp.to_s
-string_array = new_sentence.split(' ').map { |s| s.to_s  }
+string_array = new_sentence.split(' ')
 
-def symbol_sum(new_array)
-  words_length = []
-  new_array.each { |word| words_length << word.length }
+def symbol_sum(strings)
+  words_length = strings.map { |word| word.length }
   puts "Сумма символов: #{words_length.min + words_length.max}"
 end
 
